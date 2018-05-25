@@ -1,0 +1,42 @@
+<head>
+    <title>Usuários</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-heading" >
+                <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Usuários</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+
+                    <tr>
+                        <th>Nome</th>
+                        <th>Usuário</th>
+                        <th>E-Mail</th>
+                        <th>Perfil</th>
+                        <th>Observação</th>
+                        <th>Ações</th>
+                    </tr>
+                    <?php foreach ($this->usuario as $usuario) : ?>
+                        <tr class="<?= ($usuario->senhaAtiva == 0) ? 'danger' : '' ?>"> 
+                            <td><?php echo $usuario->nome ?></td>
+                            <td><?php echo $usuario->usuario ?></td>
+                            <td><?php echo $usuario->email ?></td>
+                            <td><?php echo $this->usuario($usuario->perfil) ?></td>
+                            <td><?php echo $usuario->observacao ?></td>
+
+                            <td>
+                                <a href="<?php echo $this->url(array('controller' => 'users', 'action' => 'edit', 'id' => $usuario->id)); ?>">Editar</a>
+                                <a href="<?php echo $this->url(array('controller' => 'users', 'action' => 'delete', 'id' => $usuario->id)); ?>">Excluir</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+        <div>
+            <p><button type="button" class="btn btn-primary"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'users', 'action' => 'add')); ?>">Adicionar um novo Usuário</a></button></p>
+        </div>
+    </div>
+</body>

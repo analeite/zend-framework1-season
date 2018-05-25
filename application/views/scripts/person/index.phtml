@@ -1,0 +1,47 @@
+<head>
+    <title>Pessoas</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-heading" >
+                <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Pessoas</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Nome</th>                          
+                        <th>Data de Nascimento</th>
+                        <th>Telefone</th>
+                        <th>E-Mail</th>
+                        <th>Tipo de Pessoa</th>
+                        <th>Observação</th>
+                        <th>Ações</th>
+                    </tr>
+                    <?php foreach ($this->pessoa as $pessoa) : ?>
+                        <tr>
+                            <td><a href="<?php echo $this->url(array('controller' => 'person', 'action' => 'view', 'id' => $pessoa->id)); ?>"><?php echo $pessoa->nome; ?></a></td>
+                            <td><?= date('d/m/Y', $pessoa->dataNascimento) ?></td>
+                            <td><?= (strlen($pessoa->telefone) <= 10) ? $this->mascara($pessoa->telefone, '(##) ####-####') : $this->mascara($pessoa->telefone, '(##) #####-####') ?></td>
+                            <td><?php echo $pessoa->email; ?></td>
+                            <td><?php echo $this->pessoa($pessoa->tipoPessoa); ?></td>
+                            <td><?php echo $pessoa->observacao; ?></td>
+
+                            <td>
+                                <a href="<?php echo $this->url(array('controller' => 'person', 'action' => 'edit', 'id' => $pessoa->id)); ?>">Editar</a>
+                                <a href="<?php echo $this->url(array('controller' => 'person', 'action' => 'delete', 'id' => $pessoa->id)); ?>">Excluir</a>
+
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+        <div>
+            <p><button type="button" class="btn btn-primary"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'person', 'action' => 'add')); ?>">Adicionar uma nova Pessoa</a></button></p>
+        </div>
+    </div>
+<body>
+
+

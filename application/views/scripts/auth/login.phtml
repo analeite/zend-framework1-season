@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Login do Usuário">
+        <meta name="author" content="Ana Beatriz Araujo">
+        <link rel="icon" href="../../../../favicon.ico">
+
+        <title>Login</title>
+        <link rel="shortcut icon" href="/imagens/favicon (1).ico"/>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+        <!-- Custom styles for this template -->
+        <link href="signin.css" rel="stylesheet">
+    </head>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <body class="text-center" style="background-color: #F8F8FF">
+        <div class="container-fluid">
+            <div class="col-lg-4 col-lg-offset-4">
+                <!--<img class="img-circle" src="https://scontent.fsjk2-1.fna.fbcdn.net/v/t1.0-9/26239116_1783971154959980_6790287471824653206_n.png?_nc_cat=0&oh=81b907cc01c9f8090d082fa847120c95&oe=5B3B5389" alt="" width="72" height="72">-->
+                <img class="img-circle" src="/imagens/season_logo_vermelho.png" alt="Logo Season" width="72" height="72"/>
+                <br>
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="h3 mb-3 font-weight-normal">Login</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <?php echo $this->form; ?>
+                        <?php if (!empty($this->message)) : ?>
+                            <div class="erro" id="message" style="margin-top:30px;">
+                                <?php echo $this->escape($this->message); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
+    </body>
+
+</html>

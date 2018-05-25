@@ -1,0 +1,53 @@
+<head>
+    <title>Visualizar Treinamento</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
+                </div>
+                <div class="panel-body">
+                    <div>
+                            <div>Nome do Treinamento</div>
+                            <div><?php echo $this->treinamento->nomeCurso ?></div>
+
+                        </div>
+                        <div>
+                            <div>Público Alvo</div>
+                            <div><?php echo $this->treinamento->publicoAlvo ?></div>
+                        </div>
+                        <div>
+                            <div>Objetivo</div>
+                            <div><?php echo $this->treinamento->objetivo ?></div>
+                        </div>
+                        <div>
+                            <div>Requisitos</div>
+                            <div><?php echo $this->treinamento->requisitos ?></div>
+                        </div>
+                        <div>
+                            <div>Carga Horária</div>
+                            <div><?php echo $this->treinamento->cargaHoraria ?></div>
+                        </div>
+                        <div>
+                            <div>Conteúdo Programático</div>
+                            <div><?php echo $this->treinamento->conteudo ?></div>
+                        </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="/training">Voltar</a></button></p>
+                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit')); ?>">Editar Treinamento</a></button></p>
+            </div>
+        </div>
+        <style>
+            .tamanho-botao {
+                width: 15%;
+                white-space: normal;
+            }
+        </style>
+</body>
+
+

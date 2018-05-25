@@ -1,0 +1,56 @@
+<head>
+    <title>Visualizar Pessoa</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Pessoas</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Nome</th>
+                            <td><?php echo $this->pessoa->nome ?></td>
+
+                        </tr>
+                        <tr>
+                            <th>Data de Nascimento</th>
+                            <td><?php echo date('d/m/Y', $this->pessoa->dataNascimento) ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telefone</th>
+                            <td><?php echo (strlen($this->pessoa->telefone) <= 10) ? $this->mascara($this->pessoa->telefone, '(##) ####-####') : $this->mascara($this->pessoa->telefone, '(##) #####-####') ?></td>                           
+                        </tr>
+                        <tr>
+                            <th>E-Mail</th>
+                            <td><?php echo $this->pessoa->email ?></td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de Pessoa</th>
+                            <td><?php echo $this->pessoa($this->pessoa->tipoPessoa); ?></td>
+
+                        </tr>
+                        <tr>
+                            <th>Observação</th>
+                            <td><?php echo $this->pessoa->observacao ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="text-center">
+                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="/person">Voltar</a></button></p>
+                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'person', 'action' => 'edit')); ?>">Editar Pessoa</a></button></p>
+            </div>
+        </div>
+        <style>
+            .tamanho-botao {
+                width: 15%;
+                white-space: normal;
+            }
+        </style>
+</body>
+
+
