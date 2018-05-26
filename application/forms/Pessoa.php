@@ -19,7 +19,9 @@ class Application_Form_Pessoa extends Zend_Form
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
                 ->setAttribs(array(
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'id' => 'data',
+                    'data-mask' => '00/00/0000'
                 ));
         
         $telephone = new Zend_Form_Element_Text('telefone');
@@ -53,7 +55,6 @@ class Application_Form_Pessoa extends Zend_Form
         $note = new Zend_Form_Element_Textarea('observacao');
         $note->setLabel('Observação')
                 ->setRequired(true)
-                ->addFilter('StripTags')
                 ->setAttribs(array(
                     'class' => 'form-control',
                     'rows' => 4

@@ -10,6 +10,17 @@ class TrainingController extends Zend_Controller_Action {
         // action body
         $treinamento = new Application_Model_DbTable_Treinamento();
         $this->view->treinamento = $treinamento->fetchAll();
+        
+        //paginator
+        $select = $treinamento->select()->order('id');
+        $paginator = Zend_Paginator::factory($select);
+        $page = $this->_getParam('page', 1);
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage(1);
+        $paginator->setDefaultScrollingStyle('Sliding');
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('paginatorControl.phtml');
+        
+        $this->view->paginator = $paginator;
     }
 
     function viewAction() {
@@ -20,8 +31,6 @@ class TrainingController extends Zend_Controller_Action {
         if (!empty($id)) {
             $treinamento = new Application_Model_DbTable_Treinamento();
             $row = $treinamento->find($id);
-//            Zend_Debug::dump($row->current());
-//            die();
             $this->view->treinamento = $row->current();
         }
     }

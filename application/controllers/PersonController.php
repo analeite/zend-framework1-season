@@ -10,6 +10,17 @@ class PersonController extends Zend_Controller_Action {
         // action body
         $pessoa = new Application_Model_DbTable_Pessoa();
         $this->view->pessoa = $pessoa->fetchAll();
+        
+        //paginator
+        $select = $pessoa->select()->order('id');
+        $paginator = Zend_Paginator::factory($select);
+        $page = $this->_getParam('page', 1);
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage(1);
+        $paginator->setDefaultScrollingStyle('Sliding');
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('paginatorControl.phtml');
+        
+        $this->view->paginator = $paginator;
     }
 
     function viewAction() {
@@ -19,8 +30,8 @@ class PersonController extends Zend_Controller_Action {
         $id = $request->getParam('id');
         if (!empty($id)) {
             $pessoa = new Application_Model_DbTable_Pessoa();
-            $row = $pessoa->fetchRow(array('id' => $id));
-            $this->view->pessoa = $row;
+            $row = $pessoa->find($id);
+            $this->view->pessoa = $row->current();
         }
     }
 

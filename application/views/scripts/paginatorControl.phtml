@@ -1,0 +1,44 @@
+<?php
+if ($this->pageCount):
+    $midRange = floor(sizeof($this->pagesInRange) / 2);
+    if (($this->current + $midRange) < $this->pageCount):
+        array_pop($this->pagesInRange);
+//        $display_end = true;
+    endif;
+    ?>
+    <div class="container-fluid">
+        <div id="paginationControl<?= $this->position; ?>">
+            <div class="paginationControl_showing">
+                Páginas de <strong class="current"><?= $this->current; ?> </strong> a <strong class="last"><?= $this->last; ?></strong>
+            </div>
+            <div class="paginationControl_pages">
+                <ul class="pagination">
+                    <li><?php if (isset($this->previous)): ?>
+                            <a href="<?= $this->url(array('page' => $this->first)) ?>">Primeira</a> 
+                        <?php endif; ?></li>
+
+                    <li><?php if (isset($this->previous)): ?>
+                            <a href="<?= $this->url(array('page' => $this->previous)) ?>"> < </a>
+                        <?php endif; ?></li>
+
+                    <?php foreach ($this->pagesInRange as $page): ?>
+                        <?php if ($page != $this->current): ?>
+                            <li><a href="<?= $this->url(array('page' => $page)) ?>"><?= $page ?></a></li>
+
+                        <?php else: ?>
+                            <li class="active"><a href="<?= $this->url(array('page' => $page)) ?>"><?= $page ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+
+                    <?php if (isset($this->next)): ?>
+                        <li><a href="<?= $this->url(array('page' => $this->next)) ?>"> > </a></li> 
+                    <?php endif; ?>
+
+                    <?php if (isset($this->next)): ?>
+                        <li><a href="<?= $this->url(array('page' => $this->last)) ?>"> Última </a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    <?php endif; ?>
+

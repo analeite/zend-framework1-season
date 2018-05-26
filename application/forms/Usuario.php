@@ -62,7 +62,6 @@ class Application_Form_Usuario extends Zend_Form
         $note = new Zend_Form_Element_Textarea('observacao');
         $note->setLabel('Observação')
                 ->setRequired(true)
-                ->addFilter('StripTags')
                 ->setAttribs(array(
                     'class' => 'form-control',
                     'rows' => 4

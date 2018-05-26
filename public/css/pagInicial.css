@@ -1,0 +1,88 @@
+.titulo{
+    font-family: Calibri Light, sans-serif; 
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.sub{
+    font-family: Calibri Light, sans-serif; 
+    /*font-weight: bold;*/
+    font-size: 20px;
+}
+
+/* Gera um quadrado responsivo. */
+.retangulo{
+    width: 90%;
+    height: 25%;
+    padding-bottom: 25%;
+    position: relative;
+    margin: auto;
+
+}
+
+.imagem {
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:30%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+
+.meioBot {
+    width:100px;
+    height:100px;
+    position:fixed;
+    top:48%;
+    left:50%;
+    margin-top:-50px;
+    margin-left:-50px;
+}
+
+.direitoBot {
+    width:100px;
+    height:100px;
+    position:fixed;
+    top:48%;
+    left:57%;
+    margin-top:-50px;
+    margin-left:-42px;
+}
+
+.esquerdoBot {
+    width:100px;
+    height:100px;
+    position:fixed;
+    top:48%;
+    right:57%;
+    margin-top:-50px;
+    margin-right:-50px;
+}
+
+.block{
+    position: absolute;
+    text-align: center;
+    background: #F5F5F5;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+}
+
+.block:before {
+    content: '';
+    display: inline-block;
+    height: 100%; 
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.centro {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+    /*background: #F8F8FF;*/
+    color: black;
+    border-radius: 10px;
+}

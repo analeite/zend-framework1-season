@@ -1,39 +1,36 @@
-<head>
-    <title>Treinamentos</title>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
-            </div>
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <tr>
-                        <th>Nome do Treinamento</th>
-                        <th>Público Alvo</th>
-                        <th>Objetivo</th>
-                        <th>Ações</th>
-                    </tr>
-                    <?php foreach ($this->treinamento as $treinamento) : ?>
-                        <tr>
-                            <td><a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'view', 'id' => $treinamento->id)); ?>"><?php echo $treinamento->nomeCurso ?></a></td>
-                            <td><?php echo $treinamento->publicoAlvo ?></td>
-                            <td><?php echo $treinamento->objetivo ?></td>
-                            <td>
-                                <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit', 'id' => $treinamento->id)); ?>">Editar</a>
-                                <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'delete', 'id' => $treinamento->id)); ?>">Excluir</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-            </div>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
         </div>
-        <div>
-            <p><button type="button" class="btn btn-primary"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'add')); ?>">Adicionar um novo Treinamento</a></button></p>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>Nome do Treinamento</th>
+                    <th>Público Alvo</th>
+                    <th>Objetivo</th>
+                    <th>Ações</th>
+                </tr>
+                <?php foreach ($this->paginator as $treinamento) : ?>
+                    <tr>
+                        <td><a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'view', 'id' => $treinamento->id)); ?>"><?php echo $treinamento->nomeCurso ?></a></td>
+                        <td><?php echo $treinamento->publicoAlvo ?></td>
+                        <td><?php echo $treinamento->objetivo ?></td>
+                        <td>
+                            <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit', 'id' => $treinamento->id)); ?>">Editar</a>
+                            <a href="<?php echo $this->url(array('controller' => 'training', 'action' => 'delete', 'id' => $treinamento->id)); ?>">Excluir</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
         </div>
     </div>
-</body>
+    <div>
+        <p><a class="btn btn-primary" style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'add')); ?>">Adicionar um novo Treinamento</a></p>
+    </div>
+    <br/><br/>
+    <?=$this->paginator; ?>
+</div>
+
 
 

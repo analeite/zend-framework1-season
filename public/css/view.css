@@ -1,0 +1,24 @@
+#DivA{
+    position:relative;
+    /*        width: 200px;
+            height: 200px;*/
+    float: left;
+    font-weight: bold;
+
+}
+#DivB{
+    position:relative;
+    /*        width: 200px;
+            height: 200px;*/
+    float: left;
+    left: 10px;
+}
+#DivTudo{
+    /*width: 800px;*/
+    height: 20px;
+}
+.tamanho-botao {
+    width: 15%;
+    white-space: normal;
+}
+

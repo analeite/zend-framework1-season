@@ -10,6 +10,31 @@ class UsersController extends Zend_Controller_Action {
         // action body
         $usuario = new Application_Model_DbTable_Usuario();
         $this->view->usuario = $usuario->fetchAll();
+        
+        //paginator
+//        $data = range(1, 50);
+        $select = $usuario->select()->order('id');
+        $paginator = Zend_Paginator::factory($select);
+        $page = $this->_getParam('page', 1);
+        $paginator->setCurrentPageNumber($page);
+//        $paginator->setCurrentPageNumber($this->_getParam('page'));
+        $paginator->setItemCountPerPage(1);
+        $paginator->setDefaultScrollingStyle('Sliding');
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('paginatorControl.phtml');
+        
+        $this->view->paginator = $paginator;
+    }
+
+    function viewAction() {
+        $request = $this->getRequest();
+
+        $usuario = new Application_Model_DbTable_Usuario();
+        $id = $request->getParam('id');
+        if (!empty($id)) {
+            $usuario = new Application_Model_DbTable_Usuario();
+            $row = $usuario->find($id);
+            $this->view->usuario = $row->current();
+        }
     }
 
     public function addAction() {
@@ -62,7 +87,7 @@ class UsersController extends Zend_Controller_Action {
     }
 
     public function deleteAction() {
-        $request = $this->getRequest();  
+        $request = $this->getRequest();
 
         if ($request->isPost()) {
             $del = $request->getPost('del');

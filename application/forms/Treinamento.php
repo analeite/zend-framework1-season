@@ -49,7 +49,6 @@ class Application_Form_Treinamento extends Zend_Form
         $content = new Zend_Form_Element_Textarea('conteudo');
         $content->setLabel('Conteúdo Programático')
                 ->setRequired(true)
-                ->addFilter('StripTags')
                 ->setAttribs(array(
                     'class' => 'form-control',
                     'rows' => 4

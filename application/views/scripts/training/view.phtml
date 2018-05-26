@@ -1,53 +1,47 @@
-<head>
-    <title>Visualizar Treinamento</title>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
-                </div>
-                <div class="panel-body">
-                    <div>
-                            <div>Nome do Treinamento</div>
-                            <div><?php echo $this->treinamento->nomeCurso ?></div>
-
-                        </div>
-                        <div>
-                            <div>Público Alvo</div>
-                            <div><?php echo $this->treinamento->publicoAlvo ?></div>
-                        </div>
-                        <div>
-                            <div>Objetivo</div>
-                            <div><?php echo $this->treinamento->objetivo ?></div>
-                        </div>
-                        <div>
-                            <div>Requisitos</div>
-                            <div><?php echo $this->treinamento->requisitos ?></div>
-                        </div>
-                        <div>
-                            <div>Carga Horária</div>
-                            <div><?php echo $this->treinamento->cargaHoraria ?></div>
-                        </div>
-                        <div>
-                            <div>Conteúdo Programático</div>
-                            <div><?php echo $this->treinamento->conteudo ?></div>
-                        </div>
-                </div>
+<div class="container-fluid">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
             </div>
-            <div class="text-center">
-                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="/training">Voltar</a></button></p>
-                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit')); ?>">Editar Treinamento</a></button></p>
+            <div class="panel-body">
+                <div id="DivTudo">
+                    <div id="DivA">Nome do Treinamento: </div>
+                    <div id="DivB"><?php echo $this->treinamento->nomeCurso ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Público Alvo: </div>
+                    <div id="DivB"><?php echo $this->treinamento->publicoAlvo ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Objetivo: </div>
+                    <div id="DivB"><?php echo $this->treinamento->objetivo ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Requisitos: </div>
+                    <div id="DivB"><?php echo $this->treinamento->requisitos ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Carga Horária: </div>
+                    <div id="DivB"><?php echo $this->treinamento->cargaHoraria ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Conteúdo Programático: </div>
+                    <div id="DivB"><?php echo nl2br($this->treinamento->conteudo) ?></div>
+
+                </div>
             </div>
         </div>
-        <style>
-            .tamanho-botao {
-                width: 15%;
-                white-space: normal;
-            }
-        </style>
-</body>
+        <div class="text-center">
+            <p><a class="btn btn-primary tamanho-botao" style="color: white; text-decoration: none" href="/training">Voltar</a></p>
+            <p><a class="btn btn-primary tamanho-botao" style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit')); ?>">Editar Treinamento</a></p>
+        </div>
+    </div>
+
 
 

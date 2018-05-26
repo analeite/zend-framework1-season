@@ -1,55 +1,47 @@
-<head>
-    <title>Visualizar Treinamento</title>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Treinamentos</h4>
-                </div>
-                <div class="panel-body">
-                    <table class="table table-hover">
-                        <tr>
-                            <th>Nome do Treinamento</th>
-                            <td><?php echo $this->treinamento->nomeCurso ?></td>
-
-                        </tr>
-                        <tr>
-                            <th>Público Alvo</th>
-                            <td><?php echo $this->treinamento->publicoAlvo ?></td>
-                        </tr>
-                        <tr>
-                            <th>Objetivo</th>
-                            <td><?php echo $this->treinamento->objetivo ?></td>
-                        </tr>
-                        <tr>
-                            <th>Requisitos</th>
-                            <td><?php echo $this->treinamento->requisitos ?></td>
-                        </tr>
-                        <tr>
-                            <th>Carga Horária</th>
-                            <td><?php echo $this->treinamento->cargaHoraria ?></td>
-                        </tr>
-                        <tr>
-                            <th>Conteúdo Programático</th>
-                            <td><?php echo $this->treinamento->conteudo ?></td>
-                        </tr>
-                    </table>
-                </div>
+<div class="container-fluid">
+    <div class="col-lg-10 col-lg-offset-1">
+        <!--<div class="panel panel-danger">-->
+        <div class="<?= ($this->usuario->senhaAtiva == 0) ? 'panel panel-danger' : 'panel panel-default' ?>">
+            <div class="panel-heading">
+                <h4 style="font-family: Calibri Light, sans-serif; font-weight: bold">Usuários</h4>
             </div>
-            <div class="text-center">
-                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="/training">Voltar</a></button></p>
-                <p><button type="button" class="btn btn-primary tamanho-botao"><a style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'training', 'action' => 'edit')); ?>">Editar Treinamento</a></button></p>
+            <div class="panel-body">
+                <div id="DivTudo">
+                    <div id="DivA">Nome do Usuário:</div>
+                    <div id="DivB"><?php echo $this->usuario->nome ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Usuário:</div>
+                    <div id="DivB"><?php echo $this->usuario->usuario ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">E-Mail:</div>
+                    <div id="DivB"><?php echo $this->usuario->email ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Tipo de Perfil:</div>
+                    <div id="DivB"><?php echo $this->usuario($this->usuario->perfil) ?></div>
+                </div>
+                <hr>
+                <div id="DivTudo">
+                    <div id="DivA">Usuário Ativo?</div>
+                    <div id="DivB"><?php echo $this->perfilU($this->usuario->senhaAtiva) ?></div>
+                </div>
+                <hr>
+                 <div id="DivTudo">
+                    <div id="DivA">Observação:</div>
+                    <div id="DivB"><?php echo nl2br($this->usuario->observacao) ?></div>
+                </div>
             </div>
         </div>
-        <style>
-            .tamanho-botao {
-                width: 15%;
-                white-space: normal;
-            }
-        </style>
-</body>
+        <div class="text-center">
+            <p><a class="btn btn-primary tamanho-botao" style="color: white; text-decoration: none" href="/users">Voltar</a></p>
+            <p><a class="btn btn-primary tamanho-botao" style="color: white; text-decoration: none" href="<?php echo $this->url(array('controller' => 'users', 'action' => 'edit')); ?>">Editar Usuário</a></p>
+        </div>
+    </div>
+
 
 

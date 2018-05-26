@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Home">
         <meta name="author" content="Ana Beatriz Araujo">
-        <link rel="icon" href="../../../../favicon.ico">
 
         <title>Season Treinamentos</title>
         <link rel="shortcut icon" href="/imagens/favicon (1).ico"/>
@@ -13,10 +12,16 @@
         <!-- Bootstrap core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-
-
         <!-- Custom styles for this template -->
-        <link href="signin.css" rel="stylesheet">
+        <!--        <link href="signin.css" rel="stylesheet">-->
+        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl() ?>/css/view.css" />
+        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl() ?>/css/pagInicial.css" />
+        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?= $this->baseUrl() ?>/js/jquery.maskedinput.js" /></script>
+<!--        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="jquery.mask.min.js"></script>-->
+
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -43,15 +48,12 @@
                         <li><a href="<?= $this->url(array('controller' => 'auth', 'action' => 'logout')) ?>">Sair</a></li>
                     </ul>
 
-
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container-fluid">
             <?php echo $this->layout()->content; ?>
         </div>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet">
 
     </body>
 </html>

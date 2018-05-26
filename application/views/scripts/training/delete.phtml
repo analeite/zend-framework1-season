@@ -1,28 +1,22 @@
-<head>
-    <title>Excluir Treinamento</title>
-</head>
-
-<body>
-    <div>
-        <div class="panel-heading">
-            <p class="h3 font-weight-normal" style="font-family: Calibri Light, sans-serif; font-weight: bold">Excluir Treinamento</p>
-        </div>
-        <div class="panel-body">
-            <?php echo $this->form; ?>
-
-            <p class="h4 font-weight-normal" style="font-family: Calibri Light, sans-serif">Você tem certeza de que quer excluir o treinamento    
-                '<?php echo $this->escape($this->treinamento['nomeCurso']); ?>'?
-            </p>
-            <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
-                <div>
-                    <input type="hidden" name="id" value="<?php echo $this->treinamento['id']; ?>"/>
-                    <input type="submit" name="del" value="Sim" class="btn btn-success"/>
-                    <input type="submit" name="del" value="Não" class="btn btn-danger"/>
-                </div>
-            </form>
-        </div>
-
+<div>
+    <div class="panel-heading">
+        <p class="h3 font-weight-normal" style="font-family: Calibri Light, sans-serif; font-weight: bold">Excluir Treinamento</p>
     </div>
-</body>
+    <div class="panel-body">
+        <?php echo $this->form; ?>
+
+        <p class="h4 font-weight-normal" style="font-family: Calibri Light, sans-serif">Você tem certeza de que quer excluir o treinamento    
+            '<?php echo $this->escape($this->treinamento['nomeCurso']); ?>'?
+        </p>
+        <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+            <div>
+                <input type="hidden" name="id" value="<?php echo $this->treinamento['id']; ?>"/>
+                <input type="submit" name="del" value="Sim" class="btn btn-success"/>
+                <input type="submit" name="del" value="Não" class="btn btn-danger"/>
+            </div>
+        </form>
+    </div>
+
+</div>
 
 
